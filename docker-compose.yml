@@ -10,6 +10,8 @@ services:
       - 5001:3128
   squid-5002: 
     image: konstruktoid/squid
+    depends_on:
+      - squid-5001
     container_name: p5002
     volumes:
       - ${PWD}/5002.conf:/etc/squid/squid.conf
@@ -18,6 +20,8 @@ services:
       - 5002:3128
   squid-5003: 
     image: konstruktoid/squid
+    depends_on:
+      - squid-5002
     container_name: p5003
     volumes:
       - ${PWD}/5003.conf:/etc/squid/squid.conf
@@ -26,9 +30,91 @@ services:
       - 5003:3128
   squid-5004: 
     image: konstruktoid/squid
+    depends_on:
+      - squid-5003
     container_name: p5004
     volumes:
       - ${PWD}/5004.conf:/etc/squid/squid.conf
       - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
     ports:
       - 5004:3128
+  squid-5005: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5004
+    container_name: p5005
+    volumes:
+      - ${PWD}/5005.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5005:3128
+  squid-5006: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5005
+    container_name: p5006
+    volumes:
+      - ${PWD}/5006.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5006:3128
+  squid-5007: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5006
+    container_name: p5007
+    volumes:
+      - ${PWD}/5007.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5007:3128
+  squid-5008: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5007
+    container_name: p5008
+    volumes:
+      - ${PWD}/5008.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5008:3128
+  squid-5009: 
+    image: konstruktoid/squid
+    depends_on: 
+      - squid-5008
+    container_name: p5009
+    volumes:
+      - ${PWD}/5009.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5009:3128
+  squid-5010: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5009
+    container_name: p5010
+    volumes:
+      - ${PWD}/5010.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+       - 5010:3128
+  squid-5011: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5010
+    container_name: p5011
+    volumes:
+      - ${PWD}/5011.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5011:3128
+  squid-5012: 
+    image: konstruktoid/squid
+    depends_on:
+      - squid-5011
+    container_name: p5012
+    volumes:
+      - ${PWD}/5012.conf:/etc/squid/squid.conf
+      - ${PWD}/Allowed_IPs.txt:/etc/squid/Allowed_IPs.txt
+    ports:
+      - 5012:3128      
